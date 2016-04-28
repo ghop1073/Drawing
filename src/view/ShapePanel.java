@@ -23,6 +23,11 @@ public class ShapePanel extends JPanel
 	{
 		rectangleList = new ArrayList<Rectangle>();
 		squareList = new ArrayList<Rectangle>();
+		triangleList = new ArrayList<Polygon>();
+		polygonList = new ArrayList<Polygon>();
+		elipseList = new ArrayList<Ellipse2D>();
+		circleList = new ArrayList<Ellipse2D>();
+		
 		
 	}
 	public void addRectangle()
@@ -67,12 +72,12 @@ public class ShapePanel extends JPanel
 		
 	}
 
-	public void addElipse()
+	private void addElipse()
 	{
 		
 	}
 
-	public void addCircle()
+	private void addCircle()
 	{
 		
 	}
@@ -94,9 +99,7 @@ public class ShapePanel extends JPanel
 	protected void paintComponent(Graphics currentGraphics)
 	{
 		super.paintComponent(currentGraphics);
-
 		Graphics2D mainGraphics = (Graphics2D) currentGraphics;
-
 		mainGraphics.setStroke(new BasicStroke(10));
 		mainGraphics.setColor(Color.DARK_GRAY);
 
@@ -118,6 +121,35 @@ public class ShapePanel extends JPanel
 			int blue = (int)(Math.random() * 256);
 			mainGraphics.setColor(new Color(red,green,blue));
 			mainGraphics.fill(current);	
-		}		
+		}
+		
+		for(Polygon current: triangleList)
+		{
+			int red = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red,green,blue));
+			mainGraphics.fill(current);
+		}
+		
+		for(Ellipse2D current: circleList)
+		{
+			int red = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red,green,blue));
+			mainGraphics.fill(current);
+		}
+		
+		for(Ellipse2D current: elipseList)
+		{
+			int red = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red,green,blue));
+			mainGraphics.fill(current);
+		}
+		
+		
 	}
 }
